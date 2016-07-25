@@ -82,5 +82,5 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 		<framework custom="true" src="src/ios/Firebase/RemoteConfig/FirebaseRemoteConfig.framework" />
 	</platform>
 
-	<hook src="scripts/after_prepare.js" type="after_prepare" />
+	<!-- <hook src="scripts/after_prepare.js" type="after_prepare" /> -->
 </plugin>
