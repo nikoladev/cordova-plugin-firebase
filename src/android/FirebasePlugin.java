@@ -215,12 +215,7 @@ public class FirebasePlugin extends CordovaPlugin {
         Iterator iter = params.keys();
         while(iter.hasNext()){
             String key = (String)iter.next();
-            try {
-                String value = params.getString(key);
-            } catch (JSONException e) {
-                callbackContext.error(e.getMessage());
-                return;
-            }
+            String value = params.optString(key);
             bundle.putString(key, value);
         }
 
