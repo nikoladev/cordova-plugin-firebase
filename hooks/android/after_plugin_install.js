@@ -23,11 +23,11 @@ module.exports = function(context) {
 	fs.appendFileSync(path.join(context.opts.projectRoot, 'platforms', 'android', 'build.gradle'), DATA);
 
 	// Get the google-services.json from the uncompressed zip file and move it to the andorid project folder
-	var src = path.join(context.opts.projectRoot, 'www', 'google-services.json');
-	if (fs.existsSync(src)) {
-		var data = fs.readFileSync(src);
-		var dst = path.join(context.opts.projectRoot, 'platforms', 'android', 'google-services.json');
-		fs.writeFileSync(dst, data);
-		fs.unlinkSync(src);
-	}
+	// var src = path.join(context.opts.projectRoot, 'www', 'google-services.json');
+	// if (fs.existsSync(src)) {
+	// 	var data = fs.readFileSync(src);
+	// 	var dst = path.join(context.opts.projectRoot, 'platforms', 'android', 'google-services.json');
+	// 	fs.writeFileSync(dst, data);
+	// 	fs.unlinkSync(src);
+	// }
 }
