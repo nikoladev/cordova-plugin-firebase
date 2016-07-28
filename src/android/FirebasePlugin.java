@@ -395,7 +395,7 @@ public class FirebasePlugin extends CordovaPlugin {
 
     private boolean isNumeric(String str) {
         try {
-            Double d = Double.parseDouble(str);
+            double d = Double.parseDouble(str);
         } catch (NumberFormatException nfe) {
             return false;
         }
