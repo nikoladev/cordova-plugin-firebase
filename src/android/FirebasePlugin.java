@@ -215,10 +215,10 @@ public class FirebasePlugin extends CordovaPlugin {
         Iterator iter = params.keys();
         while(iter.hasNext()){
             String key = (String)iter.next();
-            if (isNumeric(params.optString(key))) {
-                Double value = params.optDouble(key);
+            if (isLong(params.optString(key))) {
+                Long value = params.optLong(key);
                 Log.d(TAG, "value is number: " + value);
-                bundle.putDouble(key, value);
+                bundle.putLong(key, value);
             } else {
                 String value = params.optString(key);
                 Log.d(TAG, "value is string: " + value);
@@ -395,9 +395,9 @@ public class FirebasePlugin extends CordovaPlugin {
         return map;
     }
 
-    private boolean isNumeric(String str) {
+    private boolean isLong(String str) {
         try {
-            double d = Double.parseDouble(str);
+            Long l = Long.parseLong(str);
         } catch (NumberFormatException nfe) {
             return false;
         }
