@@ -216,16 +216,14 @@ public class FirebasePlugin extends CordovaPlugin {
         while(iter.hasNext()){
             String key = (String)iter.next();
             if (isNumeric(params.optString(key))) {
-                Log.d(TAG, "value is number");
                 Double value = params.optDouble(key);
+                Log.d(TAG, "value is number: " + value);
                 bundle.putDouble(key, value);
             } else {
-                Log.d(TAG, "value is string");
                 String value = params.optString(key);
+                Log.d(TAG, "value is string: " + value);
                 bundle.putString(key, value);
             }
-            // String value = params.optString(key);
-            // bundle.putString(key, value);
         }
 
         cordova.getThreadPool().execute(new Runnable() {
