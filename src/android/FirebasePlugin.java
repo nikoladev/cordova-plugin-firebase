@@ -215,8 +215,13 @@ public class FirebasePlugin extends CordovaPlugin {
         Iterator iter = params.keys();
         while(iter.hasNext()){
             String key = (String)iter.next();
-            String value = params.optString(key);
-            bundle.putString(key, value);
+            if (isNumeric(params.optString(key))) {
+                Double value = params.optDouble(key);
+                bundle.putDouble(key, value);
+            } else {
+                String value = params.optString(key);
+                bundle.putString(key, value);
+            }
         }
 
         cordova.getThreadPool().execute(new Runnable() {
@@ -386,5 +391,14 @@ public class FirebasePlugin extends CordovaPlugin {
             map.put(key, value);
         }
         return map;
+    }
+
+    private boolean isNumeric(String str) {
+        try {
+            double d = Double.parseDouble(str);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 }
