@@ -216,12 +216,15 @@ public class FirebasePlugin extends CordovaPlugin {
         while(iter.hasNext()){
             String key = (String)iter.next();
             if (isLong(params.optString(key))) {
+                Log.d(TAG, "===================== is LONG");
                 Long value = params.optLong(key);
                 bundle.putLong(key, value);
             } else if (isDouble(params.optString(key))) {
+                Log.d(TAG, "===================== is DOUBLE");
                 Double value = params.optDouble(key);
                 bundle.putDouble(key, value);
             } else {
+                Log.d(TAG, "===================== is STRING");
                 String value = params.optString(key);
                 bundle.putString(key, value);
             }
