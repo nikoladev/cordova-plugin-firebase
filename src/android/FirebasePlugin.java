@@ -215,7 +215,7 @@ public class FirebasePlugin extends CordovaPlugin {
         Iterator iter = params.keys();
         while(iter.hasNext()){
             String key = (String)iter.next();
-            Log.d("params.optString(key):", params.optString(key));
+            Log.d(key, params.optString(key));
             if (isLong(params.optString(key))) {
                 Log.d(TAG, "===================== is LONG");
                 Long value = params.optLong(key);
